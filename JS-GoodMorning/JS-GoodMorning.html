@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoodMorning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        img {
+            float: left;
+            margin: 0 auto;
+            width: 100%;
+            background-repeat: no-repeat;
+        }
+        
+        .text_div {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            color: #fff;
+            font-size: 32px;
+        }
+        
+        .btn_div {
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="/image/morning.jpg">
+    <div class="text_div">上午好</div>
+    <div class="btn_div">
+        <!-- 点击按钮，手动修改图片和描述 -->
+        <button class="auto">Auto</button>
+        <button class="morning">Morning</button>
+        <button class="afternoon">Afternoon</button>
+        <button class="night">Night</button>
+    </div>
+
+    <script>
+        // - 操作常用元素属性
+        function changeImage(hour) { // 根据条件修改元素属性
+            if (hour < 12) {
+                image.src = "image/morning.jpg";
+                text_div[0].innerHTML = "上午好";
+            } else if (hour < 18) {
+                image.src = 'image/afternoon.jpg';
+                text_div[0].innerHTML = "下午好";
+            } else {
+                image.src = "image/night.jpg";
+                text_div[0].innerHTML = "晚上好";
+            }
+        }
+        //获取元素
+        var image = document.querySelector('img');
+        var text_div = document.getElementsByClassName('text_div');
+        // 先调用一次，计时器首次运行的延时问题
+        var date = new Date();
+        var hour = date.getHours();
+        changeImage(hour);
+        // 开启计时器
+        var timer = setInterval(function() {
+            var date = new Date();
+            var hour = date.getHours();
+            changeImage(hour);
+            console.log('startloop');
+        }, 1000);
+
+        // 点击按钮，手动修改图片和描述
+
+        var autoBtn = document.getElementsByClassName('auto');
+        autoBtn[0].onclick = function() {
+            clearInterval(timer);
+            // 先调用一次，计时器首次运行的延时问题
+            var date = new Date();
+            var hour = date.getHours();
+            changeImage(hour);
+            timer = setInterval(function() { // 注意是全局的变量，如果是局部变量其他按钮事件无法取到
+                var date = new Date();
+                var hour = date.getHours();
+                changeImage(hour);
+                console.log('autoloop');
+            }, 1000);
+        }
+
+        var morningBtn = document.getElementsByClassName('morning');
+        morningBtn[0].onclick = function() {
+            clearInterval(timer);
+            var hour = 8;
+            changeImage(hour);
+        }
+
+        var afternoonBtn = document.getElementsByClassName('afternoon');
+        afternoonBtn[0].onclick = function() {
+            clearInterval(timer);
+            var hour = 13;
+            changeImage(hour);
+        }
+
+        var nightBtn = document.getElementsByClassName('night');
+        nightBtn[0].onclick = function() {
+            clearInterval(timer);
+            var hour = 19;
+            changeImage(hour);
+        }
+    </script>
+
+
+
+</body>
+
+</html>

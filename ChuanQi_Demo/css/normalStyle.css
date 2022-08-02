@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url('../BackgroundImage/bg.png') no-repeat fixed top;
+}
+
+.textDiv {
+    margin: 50px auto;
+    text-align: center;
+    color: #cdcdcd;
+    font-size: 40px;
+    font-family: sans-serif;
+}
+
+.glassCard {
+    margin: 50px auto;
+    width: 600px;
+    height: 100px;
+    border-radius: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    transition: all .5s;
+    text-align: center;
+    line-height: 100px;
+    font-size: 34px;
+    color: cyan;
+    cursor: pointer;
+}
+
+.glassCard:hover {
+    transform: scale(1.1);
+}
+
+.buttonDiv {
+    margin: 0 auto;
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    transition: all .5s;
+    text-align: center;
+    line-height: 50px;
+    font-size: 16px;
+    color: #cdcdcd;
+    cursor: pointer;
+}
+
+.buttonDiv:hover {
+    transform: scale(1.1);
+}

@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #050505;
+}
+
+.cube {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform-style: preserve-3d;
+}
+
+.demo1 {
+    transform: translate(-200%, -50%) rotate(-30deg);
+    animation: animate_demo1 4s linear infinite;
+}
+
+@keyframes animate_demo1 {
+    0% {
+        transform: translate(-200%, -50%) rotateX(-30deg) rotateY(0deg);
+    }
+    100% {
+        transform: translate(-200%, -50%) rotateX(-30deg) rotateY(360deg);
+    }
+}
+
+.demo2 {
+    transform: translate(100%, -50%) rotate(-30deg);
+    animation: animate_demo2 4s linear infinite;
+}
+
+@keyframes animate_demo2 {
+    0% {
+        transform: translate(100%, -50%) rotateX(-30deg) rotateY(0deg);
+    }
+    100% {
+        transform: translate(100%, -50%) rotateX(-30deg) rotateY(360deg);
+    }
+}
+
+.cube div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.cube div span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#151515, #00ec00);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(100px);
+}
+
+.demo2 div span {
+    background: linear-gradient(#151515, #ec0000);
+}
+
+.top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: #222;
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: #0f0;
+    transform: translateZ(-260px);
+    filter: blur(20px);
+    box-shadow: 0 0 120px rgba(0, 255, 0, 0.2), 0 0 200px rgba(0, 255, 0, 0.4), 0 0 300px rgba(0, 255, 0, 0.6), 0 0 400px rgba(0, 255, 0, 0.8), 0 0 500px rgba(0, 255, 0, 1);
+}
+
+.demo2 .top::before {
+    background: rgb(255, 0, 0);
+    box-shadow: 0 0 120px rgba(255, 0, 0, 0.2), 0 0 200px rgba(255, 0, 0, 0.4), 0 0 300px rgba(255, 0, 0, 0.6), 0 0 400px rgba(255, 0, 0, 0.8), 0 0 500px rgba(255, 0, 0, 1);
+}
+
+span {
+    text-align: center;
+    line-height: 200px;
+    color: #000;
+    font-size: 24px;
+}
+
+.textDiv {
+    margin: 50px auto;
+    text-align: center;
+    color: #cdcdcd;
+    font-size: 40px;
+    text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff, 0 0 40px #00b3ff;
+}
+
+.buttonDiv {
+    margin: 450px auto;
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    transition: all .5s;
+    text-align: center;
+    line-height: 50px;
+    font-size: 16px;
+    color: #cdcdcd;
+    cursor: pointer;
+}
+
+.buttonDiv:hover {
+    transform: scale(1.1);
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav_Demo</title>
+    <link rel="stylesheet" href="css/normalStyle.css">
+    <!-- <link rel="stylesheet" href="css/cube.css">使用点击事件进行切换 -->
+</head>
+<style>
+
+</style>
+
+<body>
+    <div class="textDiv">欢迎大黑子</div>
+    <div class="normal">
+        <div class="glassCard topDiv">demo 1</div>
+        <div class="glassCard bottomDiv">demo 2</div>
+    </div>
+    <div class="buttonDiv">切换页面样式</div>
+    <div class="cubeBox" style="display:none">
+        <div class="cube demo1">
+            <div class="top"></div>
+            <div>
+                <span style="--i:0;">demo 1</span>
+                <span style="--i:1;">demo 1</span>
+                <span style="--i:2;">demo 1</span>
+                <span style="--i:3;">demo 1</span>
+            </div>
+        </div>
+        <div class="cube demo2">
+            <div class="top"></div>
+            <div>
+                <span style="--i:0;">demo 2</span>
+                <span style="--i:1;">demo 2</span>
+                <span style="--i:2;">demo 2</span>
+                <span style="--i:3;">demo 2</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var topDiv = document.querySelector('.topDiv');
+        topDiv.addEventListener('click', function() {
+            // window.location.href = "Demo/fire_demo/index.html";
+            // 在新页面打开
+            window.open("Demo/fire_demo/index.html");
+        })
+        var demo1 = document.querySelector('.demo1');
+        demo1.addEventListener('click', function() {
+            // window.location.href = "Demo/fire_demo/index.html";
+            // 在新页面打开
+            window.open("Demo/fire_demo/index.html");
+        })
+
+        var bottomDiv = document.querySelector('.bottomDiv');
+        bottomDiv.addEventListener('click', function() {
+            // window.location.href = "Demo/dtcg_demo/index.html";
+            // 在新页面打开
+            window.open("Demo/dtcg_demo/index.html");
+        })
+        var demo2 = document.querySelector('.demo2');
+        demo2.addEventListener('click', function() {
+            // window.location.href = "Demo/dtcg_demo/index.html";
+            // 在新页面打开
+            window.open("Demo/dtcg_demo/index.html");
+        })
+
+        // 点击按钮切换样式
+        var normal_Div = document.querySelector('.normal');
+        var cubeBox = document.querySelector('.cubeBox');
+        var buttonDiv = document.querySelector('.buttonDiv');
+        var link = document.querySelector('link');
+        var flag = true;
+        buttonDiv.addEventListener('click', function() {
+            if (flag) {
+                link.href = 'css/cube.css';
+                normal_Div.style.display = 'none';
+                cubeBox.style.display = 'block';
+                flag = false;
+            } else {
+                link.href = 'css/normalStyle.css';
+                cubeBox.style.display = 'none';
+                normal_Div.style.display = 'block';
+                flag = true;
+            }
+        })
+    </script>
+</body>
+
+</html>
